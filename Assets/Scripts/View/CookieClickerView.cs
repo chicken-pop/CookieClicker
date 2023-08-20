@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 /// <summary>
@@ -7,7 +8,7 @@ using UnityEngine.UI;
 /// </summary>
 public class CookieClickerView : MonoBehaviour
 {
-    public Text cookieCountText;
+    public TextMeshProUGUI cookieCountText;
     public Button clickButton;
 
     public void UpdateCookieCount(int count)
