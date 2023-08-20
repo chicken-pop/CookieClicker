@@ -20,4 +20,9 @@ public class CookieClickerView : MonoBehaviour
     {
         clickButton.onClick.AddListener(() => onClick?.Invoke());
     }
+
+    public void SetButtonImage(Sprite cookieSprite)
+    {
+        clickButton.image.sprite = cookieSprite;
+    }
 }

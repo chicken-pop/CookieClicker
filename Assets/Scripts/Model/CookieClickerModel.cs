@@ -14,6 +14,13 @@ public class CookieClickerModel
         return cookieClickCount;
     }
 
+    private Sprite cookieImageSprite;
+
+    public Sprite GetCookieImageSprite
+    {
+        get { return cookieImageSprite; }
+    }
+
     public void AddCookieClickCount(int amount)
     {
         cookieClickCount += amount;
@@ -35,5 +42,11 @@ public class CookieClickerModel
             return;
         }
         cookieClickCount = 0;
+    }
+
+    public void LoadCookieImage()
+    {
+        var cookieSprite = AddressableAssetLoadUtility.Instance.LoadAssetAsync<Sprite>("CookieImage_0");
+        cookieImageSprite = cookieSprite;
     }
 }

@@ -11,10 +11,12 @@ public class CookieClicerPresenter : MonoBehaviour
     {
         cookieClickerModel = new CookieClickerModel();
         cookieClickerModel.LoadCookieClickCount();
+        cookieClickerModel.LoadCookieImage();
 
         cookieClickerView = GetComponent<CookieClickerView>();
 
         cookieClickerView.SetClickButtonAction(OnClickCookie);
+        cookieClickerView.SetButtonImage(cookieClickerModel.GetCookieImageSprite);
         UpdateCookieUI();
     }
 
