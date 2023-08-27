@@ -11,6 +11,15 @@ public class CookieClicerPresenter : MonoBehaviour
     {
         cookieClickerModel = new CookieClickerModel();
         cookieClickerModel.LoadCookieClickCount();
+
+        IEnumerable assetLabel = new string[]
+        {
+            "CookieImages"
+        };
+
+        StartCoroutine(AddressableAssetLoadUtility.Instance.CheckCatalogUpdates());
+        StartCoroutine(AddressableAssetLoadUtility.Instance.GetDownloadSize(assetLabel));
+
         cookieClickerModel.LoadCookieImage();
 
         cookieClickerView = GetComponent<CookieClickerView>();
