@@ -15,18 +15,18 @@ MonoBehaviour:
   m_DefaultGroup: 7ae813e20ce8dfe4a9d2057d32d289f3
   m_currentHash:
     serializedVersion: 2
-    Hash: 00000000000000000000000000000000
+    Hash: d132c894613ebbf3dfa78b572b6c24b9
   m_OptimizeCatalogSize: 0
-  m_BuildRemoteCatalog: 0
+  m_BuildRemoteCatalog: 1
   m_BundleLocalCatalog: 0
   m_CatalogRequestsTimeout: 0
-  m_DisableCatalogUpdateOnStart: 0
+  m_DisableCatalogUpdateOnStart: 1
   m_IgnoreUnsupportedFilesInBuild: 0
-  m_UniqueBundleIds: 0
-  m_NonRecursiveBuilding: 1
+  m_UniqueBundleIds: 1
+  m_NonRecursiveBuilding: 0
   m_CCDEnabled: 0
   m_maxConcurrentWebRequests: 3
-  m_ContiguousBundles: 1
+  m_ContiguousBundles: 0
   m_StripUnityVersionFromBundleBuild: 0
   m_DisableVisibleSubAssetRepresentations: 0
   m_ShaderBundleNaming: 0
@@ -35,10 +35,10 @@ MonoBehaviour:
   m_CheckForContentUpdateRestrictionsOption: 0
   m_MonoScriptBundleCustomNaming: 
   m_RemoteCatalogBuildPath:
-    m_Id: 
+    m_Id: 6fc7c10b60a9e744d8abac510b267a70
   m_RemoteCatalogLoadPath:
-    m_Id: 
-  m_ContentStateBuildPathProfileVariableName: 
+    m_Id: 00f6b256a864ca04482c442992e63f9a
+  m_ContentStateBuildPathProfileVariableName: <default settings path>
   m_CustomContentStateBuildPath: 
   m_ContentStateBuildPath: 
   m_BuildAddressablesWithPlayerBuild: 0
@@ -67,6 +67,20 @@ MonoBehaviour:
         m_Value: ServerData/[BuildTarget]
       - m_Id: 00f6b256a864ca04482c442992e63f9a
         m_Value: http://[PrivateIpAddress]:[HostingServicePort]
+    - m_InheritedParent: 
+      m_Id: 06059b7c0470ddc4787b0a96dd71cf27
+      m_ProfileName: Remote
+      m_Values:
+      - m_Id: b1a990f3850787d4ca1be82ec781a858
+        m_Value: '[UnityEditor.EditorUserBuildSettings.activeBuildTarget]'
+      - m_Id: e83cf806e0def1f4bb62364c1d110d3c
+        m_Value: '[UnityEngine.AddressableAssets.Addressables.BuildPath]/[BuildTarget]'
+      - m_Id: 958038bd9cddfa040b9bcc790df156c3
+        m_Value: '{UnityEngine.AddressableAssets.Addressables.RuntimePath}/[BuildTarget]'
+      - m_Id: 6fc7c10b60a9e744d8abac510b267a70
+        m_Value: ServerData/[BuildTarget]
+      - m_Id: 00f6b256a864ca04482c442992e63f9a
+        m_Value: https://d242bkfz9bjmti.cloudfront.net
     m_ProfileEntryNames:
     - m_Id: b1a990f3850787d4ca1be82ec781a858
       m_Name: BuildTarget
@@ -87,6 +101,7 @@ MonoBehaviour:
   m_LabelTable:
     m_LabelNames:
     - default
+    - CookieImages
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 84a5f717fb0d3d04481425ed52736892, type: 2}
@@ -100,7 +115,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0fef6004f6035d84dbccef31a54311f6, type: 2}
   - {fileID: 11400000, guid: fc6da146249591444a702243a5b6692b, type: 2}
   - {fileID: 11400000, guid: 02eabf9ac01531348b2da2517dea9f9f, type: 2}
-  m_ActiveProfileId: a77da53e8ad75dc4585cd2a3c9c46934
+  m_ActiveProfileId: 06059b7c0470ddc4787b0a96dd71cf27
   m_HostingServicesManager:
     m_HostingServiceInfos: []
     m_Settings: {fileID: 11400000}

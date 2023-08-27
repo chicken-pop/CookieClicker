@@ -20,7 +20,8 @@ MonoBehaviour:
   - m_GUID: 09b5f76ea37341c419c3c131c47c346f
     m_Address: CookieImage_0
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - CookieImages
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: fb3e1c7ffac10dd4eb0723c83c4ea1ba, type: 2}
