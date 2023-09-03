@@ -44,9 +44,10 @@ public class CookieClickerModel
         cookieClickCount = 0;
     }
 
+
     public void LoadCookieImage()
     {
-        var cookieSprite = AddressableAssetLoadUtility.Instance.LoadAssetAsync<Sprite>("CookieImage_0");
-        cookieImageSprite = cookieSprite;
+        //var cookieSprite = AddressableAssetLoadUtility.Instance.LoadAssetAsync<Sprite>("CookieImage_0");
+        //cookieImageSprite = cookieSprite;
     }
 }
