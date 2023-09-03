@@ -4,38 +4,54 @@ using UnityEngine;
 
 public class CookieClicerPresenter : MonoBehaviour
 {
-    private CookieClickerModel cookieClickerModel;
-    private CookieClickerView cookieClickerView;
+    internal CookieClickerModel cookieClickerModel;
+    internal CookieClickerView cookieClickerView;
 
-    private async void Start()
+    public int GameClearClickCount = 20;
+
+    private InGameStateMachine stateMachine;
+
+    internal InGameStateMachine GetStateMachine
     {
-        cookieClickerModel = new CookieClickerModel();
-        cookieClickerModel.LoadCookieClickCount();
-
-        IEnumerable assetLabel = new string[]
-        {
-            "CookieImages"
-        };
-
-        await AddressableAssetLoadUtility.Instance.CheckCatalogUpdates();
-        await AddressableAssetLoadUtility.Instance.GetDownloadSize(assetLabel);
-
-        cookieClickerModel.LoadCookieImage();
-
-        cookieClickerView = GetComponent<CookieClickerView>();
-
-        cookieClickerView.SetClickButtonAction(OnClickCookie);
-        cookieClickerView.SetButtonImage(cookieClickerModel.GetCookieImageSprite);
-        UpdateCookieUI();
+        get { return stateMachine; }
     }
 
-    private void OnClickCookie()
+    public InGameStateInit InGameStateInit;
+    public InGameStateStart InGameStateStart;
+
+    //MainGameïîï™
+    public InGameStateMain InGameStateMain;
+
+    //ÉQÅ[ÉÄÇÃÉäÉUÉãÉg
+    public InGameStateResult InGameStateResult;
+    public InGameStateEnd InGameStateEnd;
+
+    private void Start()
+    {
+        stateMachine = new InGameStateMachine();
+
+        InGameStateInit = new InGameStateInit(stateMachine, this);
+        InGameStateStart = new InGameStateStart(stateMachine, this);
+        InGameStateMain = new InGameStateMain(stateMachine, this);
+        InGameStateResult = new InGameStateResult(stateMachine, this);
+        InGameStateEnd = new InGameStateEnd(stateMachine, this);
+
+        stateMachine.ChangeState(InGameStateInit);
+
+    }
+
+    private void Update()
+    {
+        stateMachine.Update();
+    }
+
+    public void OnClickCookie()
     {
         cookieClickerModel.AddCookieClickCount(1);
         UpdateCookieUI();
     }
 
-    private void UpdateCookieUI()
+    public void UpdateCookieUI()
     {
         cookieClickerView.UpdateCookieCount(cookieClickerModel.GetCookieClickCount());
     }

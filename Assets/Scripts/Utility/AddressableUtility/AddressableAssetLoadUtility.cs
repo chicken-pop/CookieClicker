@@ -17,11 +17,16 @@ public class AddressableAssetLoadUtility : SingletonMonoBehaviour<AddressableAss
     private AsyncOperationHandle<List<IResourceLocator>> updateCatalog = new AsyncOperationHandle<List<IResourceLocator>>();
 
     private AsyncOperationHandle<IResourceLocator> initializeResourceLocator = new AsyncOperationHandle<IResourceLocator>();
+
     public T LoadAssetAsync<T>(string address) where T : Object
     {
         assetOperation = Addressables.LoadAssetAsync<T>(address);
-        var asset = assetOperation.WaitForCompletion();
-        return (T)asset;
+        if (assetOperation.IsValid())
+        {
+            var asset = assetOperation.WaitForCompletion();
+            return (T)asset;
+        }
+        return null;
     }
 
     public async UniTask GetDownloadSize(IEnumerable addressLabel)

@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,7 +6,7 @@ using UnityEngine;
 /// <summary>
 /// データ、およびデータの操作はすべてここで行う
 /// </summary>
-public class CookieClickerModel 
+public class CookieClickerModel
 {
     private int cookieClickCount;
 
@@ -36,7 +37,7 @@ public class CookieClickerModel
     {
         var loadPlayerData = JsonSaveUtility.Load<PlayerSaveData>();
         //保存しているデータがある場合
-        if(loadPlayerData != null)
+        if (loadPlayerData != null)
         {
             cookieClickCount = loadPlayerData.PlayerScore;
             return;
@@ -44,10 +45,24 @@ public class CookieClickerModel
         cookieClickCount = 0;
     }
 
+    public bool LoadedAsset = false;
 
-    public void LoadCookieImage()
+    public async UniTask AssetsLoad()
     {
-        //var cookieSprite = AddressableAssetLoadUtility.Instance.LoadAssetAsync<Sprite>("CookieImage_0");
-        //cookieImageSprite = cookieSprite;
+        IEnumerable assetLabel = new string[]
+        {
+            "CookieImages"
+        };
+
+        await AddressableAssetLoadUtility.Instance.CheckCatalogUpdates();
+        await AddressableAssetLoadUtility.Instance.GetDownloadSize(assetLabel);
+        LoadedAsset = true;
+    }
+
+    public void LoadCookieImage(int index)
+    {
+        var cookieSprite = AddressableAssetLoadUtility.Instance.LoadAssetAsync<Sprite>($"CookieImage_{index}");
+        cookieImageSprite = cookieSprite;
+        Debug.Log(cookieImageSprite);
     }
 }
