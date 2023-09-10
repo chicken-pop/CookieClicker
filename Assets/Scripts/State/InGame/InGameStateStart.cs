@@ -19,6 +19,8 @@ public class InGameStateStart : InGameState
         cookieClickerPresenter.UpdateCookieUI();
         stateMachine.ChangeState(cookieClickerPresenter.InGameStateMain);
 
+        AudioManager.Instance.PlayBGM(AudioManager.BGMType.InGame);
+
     }
 
     public override void Exit()

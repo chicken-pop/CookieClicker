@@ -10,11 +10,13 @@ public class InGameStateMain : InGameState
 
     public override void Enter()
     {
+        cookieClickerPresenter.cookieClickerModel.LoadCookieImage(cookieClickerPresenter.cookieClickerModel.GetCookieClickCount() / 10);
+        cookieClickerPresenter.cookieClickerView.SetButtonImage(cookieClickerPresenter.cookieClickerModel.GetCookieImageSprite);
     }
 
     public override void Exit()
     {
-       
+
     }
 
     public override void Update()
@@ -25,7 +27,6 @@ public class InGameStateMain : InGameState
         if (cookieClickerPresenter.cookieClickerModel.GetCookieClickCount() % 10 == 0)
         {
             Debug.Log("âÊëúÇÃïœçX");
-            cookieClickerPresenter.cookieClickerModel.LoadCookieImage(cookieClickerPresenter.cookieClickerModel.GetCookieClickCount() / 10);
             stateMachine.ChangeState(cookieClickerPresenter.InGameStateResult);
         }
     }

@@ -15,6 +15,7 @@ public class InGameStateInit : InGameState
 
         await cookieClickerPresenter.cookieClickerModel.AssetsLoad();
 
+        AudioManager.Instance.AudioLoad();
         Debug.Log("Init");
     }
 

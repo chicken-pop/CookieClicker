@@ -51,7 +51,9 @@ public class CookieClickerModel
     {
         IEnumerable assetLabel = new string[]
         {
-            "CookieImages"
+            "CookieImages",
+            "BGM",
+            "SE"
         };
 
         await AddressableAssetLoadUtility.Instance.CheckCatalogUpdates();
