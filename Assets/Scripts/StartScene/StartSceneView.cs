@@ -7,14 +7,11 @@ using UnityEngine.UI;
 public class StartSceneView : MonoBehaviour
 {
     [SerializeField]
-    private Button startButton;
+    private CookieClickerButton startButton;
 
     public void SetStartButton(UnityAction onClick)
     {
-        startButton.onClick.AddListener(() =>
-        {
-            onClick.Invoke();
-        });
+        startButton.Action = onClick;
     }
 
     public void SetStartButtonImage()
