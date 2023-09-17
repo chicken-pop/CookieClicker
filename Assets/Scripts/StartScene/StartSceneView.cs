@@ -13,7 +13,6 @@ public class StartSceneView : MonoBehaviour
     {
         startButton.onClick.AddListener(() =>
         {
-            AudioManager.Instance.PlaySE(AudioManager.SETypes.Click);
             onClick.Invoke();
         });
     }
